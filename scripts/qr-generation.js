@@ -1,12 +1,16 @@
 var qrdata = document.getElementById("input-text");
 const downloadButton = document.querySelector('#download-button');
 
+
+
+
 function generateQR() {
     if($('#qrcode').is(':empty')){
         var data = qrdata.value;
         var qrcode = new QRCode(document.getElementById("qrcode"), {
-            width: window.innerWidth/6,
-            hieght: window.innerWidth/6}
+            width: window.innerWidth*0.15,
+            height: window.innerWidth*0.15
+            }
         );
         qrcode.makeCode(data);
         document.getElementById("qrcode").removeAttribute("hidden");
@@ -24,3 +28,4 @@ function downloadQR() {
     $("#download-a").attr("href", canvasUrl)
     $("#download-a").attr('download', 'qrcode.png');
 }
+
