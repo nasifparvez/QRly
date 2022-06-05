@@ -36,7 +36,8 @@ function fetchRequest(file,formData){
         form.querySelector("img").src = URL.createObjectURL(file);
         qrInput.classList.add("active");
     }).catch(() => {
-        infoText.innerText = "Couldn't scan QR Code";
+        document.querySelector("textarea").innerText = "Error: Could not scan QR Code from Upload. Please Click the close button below and try again.";
+        document.querySelector("drag-text").innerText = "";
     });
 }
 
@@ -61,15 +62,18 @@ closeBtn.addEventListener("click", () => {
     qrInput.classList.remove("active")
     fileInp.value = "";
     document.querySelector("textarea").innerText = "";
+    document.querySelector("drag-text").innerText = "Or Drag and Drop";
 });
 
 
 //For Camera Scanning
 function onScanSuccess(result) {
     document.querySelector("textarea").innerText = result;
+    html5QrcodeScanner.clear();
 }
 function onScanError(errorMessage) {
   //handle scan error
+  document.querySelector("textarea").innerText = "Error: Could not scan QR Code from camera. Please Click the close button below and try again.";
 }
 var html5QrcodeScanner = new Html5QrcodeScanner(
     "reader", { fps: 10, qrbox: 250 });
