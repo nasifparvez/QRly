@@ -36,7 +36,6 @@ function fetchRequest(file,formData){
         form.querySelector("img").src = URL.createObjectURL(file);
         qrInput.classList.add("active");
     }).catch(() => {
-        document.querySelector("textarea").innerText = "Error: Could not scan QR Code from Upload. Please Click the close button below and try again.";
         document.querySelector("drag-text").innerText = "";
     });
 }
