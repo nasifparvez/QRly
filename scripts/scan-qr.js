@@ -73,7 +73,6 @@ function onScanSuccess(result) {
 }
 function onScanError(errorMessage) {
   //handle scan error
-  document.querySelector("textarea").innerText = "Error: Could not scan QR Code from camera. Please Click the close button below and try again.";
 }
 var html5QrcodeScanner = new Html5QrcodeScanner(
     "reader", { fps: 10, qrbox: 250 });
