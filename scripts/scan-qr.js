@@ -36,7 +36,7 @@ function fetchRequest(file,formData){
         form.querySelector("img").src = URL.createObjectURL(file);
         qrInput.classList.add("active");
     }).catch(() => {
-        document.querySelector("drag-text").innerText = "";
+        
     });
 }
 
